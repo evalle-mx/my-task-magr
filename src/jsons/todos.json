@@ -1,0 +1,28 @@
+{
+    "tareas":[
+        {
+            "titulo": "Tarea 1",
+            "responsable":"Mark",
+            "descripcion":"lorem impsum 2",
+            "prioridad":"low"
+        },
+        {
+            "titulo": "Tarea 2",
+            "responsable":"Rayan",
+            "descripcion":"lorem impsum 1",
+            "prioridad":"medium"
+        },
+        {
+            "titulo": "Tarea 3",
+            "responsable":"John",
+            "descripcion":"lorem impsum 3",
+            "prioridad":"high"
+        },
+        {
+            "titulo": "Tarea 4",
+            "responsable":"Hiba",
+            "descripcion":"lorem impsum 4",
+            "prioridad":"low"
+        }
+    ]
+}

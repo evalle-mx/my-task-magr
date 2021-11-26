@@ -2,6 +2,11 @@
 2) https://www.youtube.com/watch?v=Q3JBvLOzL0o
 3) https://www.youtube.com/watch?v=67ASQxnnyFE
 
+
+Aplicacion React con datos estaticos simulados  usando import de archivo Json
+
+
+
 $ npx create-react-app my-task-magr
 
 '''
