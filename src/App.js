@@ -16,13 +16,25 @@ class App extends Component {
         tareas
 
       };
-      this.handleAddTarea= this.handleAddTarea.bind(this) ;
+      this.handleAddTarea= this.handleAddTarea.bind(this);
   }
 
   handleAddTarea(tarea){
     this.setState ({
       tareas: [...this.state.tareas, tarea]
     });
+  }
+
+  removeTarea(index){
+    //console.log(index);
+    if(window.confirm('Seguro de querer eliminar tarea '+index+'?')){
+      this.setState ({
+        tareas: this.state.tareas.filter( (tar, i) => {
+          return i !== index
+        } )
+      });
+    }
+    
   }
 
   render() {
@@ -43,7 +55,8 @@ class App extends Component {
               <p><mark>{tarea.responsable}</mark></p>
             </div>
             <div className="card-footer">
-              <button className="btn btn-danger">Borrar</button>
+              <button className="btn btn-danger" onClick={this.removeTarea.bind(this, i)}>
+                Borrar</button>
             </div>
           </div>
         </div>
