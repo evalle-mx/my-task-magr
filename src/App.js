@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { tareas } from './jsons/todos.json'
+import FormTarea from './components/FormTarea'
 
 
 class App extends Component {
@@ -15,6 +16,13 @@ class App extends Component {
         tareas
 
       };
+      this.handleAddTarea= this.handleAddTarea.bind(this) ;
+  }
+
+  handleAddTarea(tarea){
+    this.setState ({
+      tareas: [...this.state.tareas, tarea]
+    });
   }
 
   render() {
@@ -26,7 +34,7 @@ class App extends Component {
           <div className="card mt-4">
             <div className="card-header">
               <h3>{tarea.titulo}</h3>
-              <span className="badge bg-danger">
+              <span className="badge badge-pill badge-danger ml-2">
                 {tarea.prioridad}
                 </span>     
             </div>
@@ -34,31 +42,42 @@ class App extends Component {
               <p>{tarea.descripcion}</p>
               <p><mark>{tarea.responsable}</mark></p>
             </div>
+            <div className="card-footer">
+              <button className="btn btn-danger">Borrar</button>
+            </div>
           </div>
         </div>
         
       )
     });
+
+
+    // RETURN THE COMPONENT
     return (
       <div className="App">
+
         <nav className="navbar navbar-dark bg-dark">
           <a href="/#" className="App-link"> 
           { this.state.titulo } &nbsp;
-          <span className="badge badge-pill bg-success "> { this.state.tareas.length } </span> </a>
+          <span className="badge badge-pill badge-light ml-2"> 
+            { this.state.tareas.length } </span> 
+          </a>
         </nav>
 
         <div className="container">
           <div className="row mt-4">
-            {todos}
+            <div className="col-md-4 text-center">
+              <img src={logo} className="App-logo" alt="logo" />
+              <FormTarea onAddTarea={this.handleAddTarea} />
+            </div>
+
+            <div className="col-md-8">
+              <div className="row">
+                {todos}
+              </div>
+            </div>
           </div>
         </div>
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p> Edit <code>src/App.js</code> and save to reload. </p>
-          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" >
-            Aprenda React </a>
-        </header> */}
       </div>
     );
   }
